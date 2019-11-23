@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace TRJA_harjoitustyo // Johanna Pakkala 23.11.2019
@@ -8,16 +9,15 @@ namespace TRJA_harjoitustyo // Johanna Pakkala 23.11.2019
     {
         static void Main(string[] args)
         {
-            /*
-<<<<<<< HEAD
 
-=======
             // laitettu githubiin la 23.11.
->>>>>>> 6f9f490... Initial check-in of module TRJA_harjoitustyo
-*/
+
+
+            
 
             do
             {
+                Stopwatch kello = new Stopwatch();
 
                 Console.Clear();
                 Console.WriteLine("Sorttaustestejä\n");
@@ -26,106 +26,106 @@ namespace TRJA_harjoitustyo // Johanna Pakkala 23.11.2019
                 /* QUICKSORT ***********************/
 
                 int[] taulukko10 = CreateArray(10000);
-                long alku = StartClock(); // otetaan alkuaika (ms)
+                kello.Start();
                 QuickSort(taulukko10, 0, taulukko10.Length-1);
-                Console.WriteLine($"Quick Sort 10 000:\t {StopClock(alku)} ms \t(oli epäjärjestyksessä)");
+                kello.Stop();
+                Console.WriteLine($"Quick Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli epäjärjestyksessä)");
 
                 Array.Reverse(taulukko10); // käännetään järjestys laskevaksi
 
-                alku = StartClock();
+                kello.Start();
                 QuickSort(taulukko10, 0, taulukko10.Length - 1);
-                Console.WriteLine($"Quick Sort 10 000:\t {StopClock(alku)} ms \t(oli laskevassa järjestyksessä)");
+                kello.Stop();
+                Console.WriteLine($"Quick Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli laskevassa järjestyksessä)");
 
-                alku = StartClock();
+                kello.Start();
                 QuickSort(taulukko10, 0, taulukko10.Length - 1);
-                Console.WriteLine($"Quick Sort 10 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"Quick Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli nousevassa järjestyksessä)");
 
                 int[] taulukko500 = CreateArray(500000);
-                alku = StartClock();
+                kello.Start();
                 QuickSort(taulukko500, 0, taulukko500.Length - 1);
-                Console.WriteLine($"\nQuick Sort 500 000:\t {StopClock(alku)} ms \t(oli epäjärjestyksessä)");
+                Console.WriteLine($"\nQuick Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli epäjärjestyksessä)");
 
                 Array.Reverse(taulukko500); // käännetään järjestys laskevaksi
 
-                alku = StartClock();
+                kello.Start();
                 QuickSort(taulukko500, 0, taulukko500.Length - 1);
-                Console.WriteLine($"Quick Sort 500 000:\t {StopClock(alku)} ms \t(oli laskevassa järjestyksessä)");
+                Console.WriteLine($"Quick Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli laskevassa järjestyksessä)");
 
-                alku = StartClock();
+                kello.Start();
                 QuickSort(taulukko500, 0, taulukko500.Length - 1);
-                Console.WriteLine($"Quick Sort 500 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"Quick Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli nousevassa järjestyksessä)");
 
 
 
                 /* ARRAYSORT ***********************/
 
                 taulukko10 = CreateArray(10000);
-                alku = StartClock();
+                kello.Start();
                 Array.Sort(taulukko10);
-                Console.WriteLine($"\nArray Sort 10 000:\t {StopClock(alku)} ms \t(oli epäjärjestyksessä)");
-
-                alku = StartClock();
-                Array.Sort(taulukko10);
-                Console.WriteLine($"Array Sort 10 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"\nArray Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli epäjärjestyksessä)");
 
                 Array.Reverse(taulukko10); // käännetään laskevaan järjestykseen
-                alku = StartClock();
+
+                kello.Start();
                 Array.Sort(taulukko10);
-                Console.WriteLine($"Array Sort 10 000:\t {StopClock(alku)} ms \t(oli laskevassa järjestyksessä)");
+                Console.WriteLine($"Array Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli laskevassa järjestyksessä)");
+
+                kello.Start();
+                Array.Sort(taulukko10);
+                Console.WriteLine($"Array Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli nousevassa järjestyksessä)");
 
                 taulukko500 = CreateArray(500000);
-                alku = StartClock();
+                kello.Start();
                 Array.Sort(taulukko500);
-                Console.WriteLine($"\nArray Sort 500 000:\t {StopClock(alku)} ms \t(oli epäjärjestyksessä)");
-
-                alku = StartClock();
-                Array.Sort(taulukko500);
-                Console.WriteLine($"Array Sort 500 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"\nArray Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli epäjärjestyksessä)");
 
                 Array.Reverse(taulukko500); // käännetään laskevaan järjestykseen
-                alku = StartClock();
+
+                kello.Start();
                 Array.Sort(taulukko500);
-                Console.WriteLine($"Array Sort 500 000:\t {StopClock(alku)} ms \t(oli laskevassa järjestyksessä)");
+                Console.WriteLine($"Array Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli laskevassa järjestyksessä)");
+
+                kello.Start();
+                Array.Sort(taulukko500);
+                Console.WriteLine($"Array Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli nousevassa järjestyksessä)");
 
 
                 /* MERGESORT ***********************/ 
 
                 List<int> lista10 = CreateList(10000);
 
-                alku = StartClock();
+                kello.Start();
                 MergeSort(lista10);
-                Console.WriteLine($"\nMerge Sort 10 000:\t {StopClock(alku)} ms \t(oli epäjärjestyksessä)");
-
-                alku = StartClock();
-                MergeSort(lista10);
-                Console.WriteLine($"Merge Sort 10 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"\nMerge Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli epäjärjestyksessä)");
 
                 lista10.Reverse(); // käännetään laskevaan järjestykseen
 
-                alku = StartClock();
+                kello.Start();
                 MergeSort(lista10);
-                Console.WriteLine($"Merge Sort 10 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"Merge Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli laskevassa järjestyksessä)");
+
+                kello.Start();
+                MergeSort(lista10);
+                Console.WriteLine($"Merge Sort 10 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli nousevassa järjestyksessä)");
 
 
                 List<int> lista500 = CreateList(500000);
 
-                alku = StartClock();
-                Console.WriteLine(StartClock());
+                kello.Start();
                 MergeSort(lista500);
-                Console.WriteLine(StartClock());
-                Console.WriteLine($"\nMerge Sort 500 000:\t {StopClock(alku)} ms \t(oli epäjärjestyksessä)");
-                Console.WriteLine(StartClock());
-
-
-                alku = StartClock();
-                MergeSort(lista500);
-                Console.WriteLine($"Merge Sort 500 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"\nMerge Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli epäjärjestyksessä)");
 
                 lista10.Reverse(); // käännetään laskevaan järjestykseen
 
-                alku = StartClock();
+                kello.Start();
                 MergeSort(lista500);
-                Console.WriteLine($"Merge Sort 500 000:\t {StopClock(alku)} ms \t(oli nousevassa järjestyksessä)");
+                Console.WriteLine($"Merge Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli laskevassa järjestyksessä)");
+
+                kello.Start();
+                MergeSort(lista500);
+                Console.WriteLine($"Merge Sort 500 000:\t {kello.Elapsed.ToString("s\\,fff")} sek \t(oli nousevassa järjestyksessä)");
 
 
                 Console.WriteLine("\nPaina enter ajaaksesi uudelleen:");
@@ -160,16 +160,6 @@ namespace TRJA_harjoitustyo // Johanna Pakkala 23.11.2019
                 lista.Add(arpa.Next(0, 1000000));
             }
             return lista;
-        }
-
-        public static long StartClock()
-        {
-            return DateTime.Now.Millisecond;
-        }
-
-        public static long StopClock(long alku)
-        {
-            return DateTime.Now.Millisecond - alku;
         }
 
         public static void PrintArray(int[] taulukko)
