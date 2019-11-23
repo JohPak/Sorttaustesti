@@ -84,7 +84,7 @@ namespace TRJA_harjoitustyo // Johanna Pakkala
                 Console.WriteLine($"Array Sort 500 000:\t {StopClock(alku)} ms \t(oli laskevassa järjestyksessä)");
 
 
-                /* MERGESORT ***********************/
+                /* MERGESORT ***********************/ 
 
                 List<int> lista10 = CreateList(10000);
 
