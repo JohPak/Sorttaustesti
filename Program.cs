@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TRJA_harjoitustyo // Johanna Pakkala
+namespace TRJA_harjoitustyo // Johanna Pakkala 23.11.2019
 {
     class Program
     {
         static void Main(string[] args)
         {
+            /*
+<<<<<<< HEAD
 
-
-
+=======
+            // laitettu githubiin la 23.11.
+>>>>>>> 6f9f490... Initial check-in of module TRJA_harjoitustyo
+*/
 
             do
             {
